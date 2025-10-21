@@ -33,8 +33,11 @@ O Sub-agent SQL possui acesso aos seguintes campos:
   - Agrupar por **filial** e **produto**.  
 - Se o período **não for mencionado**, considerar o **mês atual**.  
 - Sempre informar ao Sub-agent **quais filtros devem ser aplicados** e **como agrupar os dados**, de acordo com o pedido do usuário.  
-
+- **Nunca** considerar o dia atual no filtro de data da producção, pois a produção do dia só é consolidada no dia seguinte.  
+- Se o usuário perguntar sobre o **dia atual**, informe que os dados do dia só são disponibilizados no dia seguinte e, portanto, não estão disponíveis ainda.
+  
 ---
+
 
 ## 📊 Agrupamentos permitidos
 - Por produto  
