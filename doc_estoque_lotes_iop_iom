@@ -30,6 +30,7 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 - Pode agrupar ou filtrar por **filial/unidade**, **tipo de produto (IOP/IOM)**, **lote**, **validade** ou **outros filtros solicitados pelo usuário**.  
 - Sempre informe ao Sub-agent **quais filtros foram aplicados** e **como agrupar os dados** de acordo com o pedido do usuário.  
 - Se o período ou filtros **não forem mencionados**, considere todas as filiais e produtos, agrupando por tipo de produto e filial.  
+- Não invente significados ou informações
 
 ---
 
