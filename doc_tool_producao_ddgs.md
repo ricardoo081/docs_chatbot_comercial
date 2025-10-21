@@ -31,6 +31,8 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 - Sempre informar ao Sub-agent **quais filtros foram aplicados** e **como agrupar os dados**, de acordo com o pedido do usuário.  
 - Para análises de variação, considere a **diferença entre produção real e projeção**:  
   > Diferença = `PROD_DDGS - PROJECAO_PROD`
+- **Nunca** considerar o dia atual no filtro de data da producção, pois a produção do dia só é consolidada no dia seguinte.  
+- Se o usuário perguntar sobre o **dia atual**, informe que os dados do dia só são disponibilizados no dia seguinte e, portanto, não estão disponíveis ainda.
 
 ---
 
