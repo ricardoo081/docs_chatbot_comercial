@@ -47,8 +47,6 @@ O Sub-agent SQL possui acesso aos seguintes campos:
   - Considerar **todos os produtos**.  
   - Agrupar por **produto** e **filial**.  
 - Se o período **não for mencionado**, considerar o **mês atual**.  
-- **Nunca considerar o dia atual**, pois os dados do dia só são consolidados no dia seguinte.  
-- Se o usuário perguntar sobre o **dia atual**, explique que os dados ainda não estão disponíveis.
 
 ---
 
