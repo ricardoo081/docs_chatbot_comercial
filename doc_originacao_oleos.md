@@ -27,6 +27,21 @@ Este workflow deve ser utilizado para solicitações relacionadas a **notas fisc
 
 ---
 
+Cada pergunta do usuário deve ser tratada como uma instrução independente ao Sub-agent, mesmo que se refira ao mesmo período ou fornecedor.
+
+**Exemplo:**  
+- Pergunta 1: “Quantas notas de originação foram emitidas hoje?”  
+  → Rafinha cria **Sub-agent 1**: contagem total de notas do dia.  
+
+- Pergunta 2: “Me detalha por fornecedor e quantidade?”  
+  → Rafinha cria **Sub-agent 2**: lista de cada nota individual com fornecedor e quantidade.  
+
+Após receber ambos os resultados, Rafinha **combina em uma única resposta**:  
+1. Primeiro mostra o **total de notas**.  
+2. Depois detalha **cada nota por fornecedor**.
+
+---
+
 ## Exemplo de instrução para o Sub-agent
 > Retornar a data e a quantidade das notas fiscais do fornecedor **São Martinho**, referentes ao **mês anterior**.
 
