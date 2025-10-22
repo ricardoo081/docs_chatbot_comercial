@@ -56,8 +56,13 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 ## 📌 Observações importantes
 - Sempre reportar o **filtro aplicado** (produto, filial, depósito) e o **agrupamento** utilizado.  
 - Sempre expressar a **quantidade em toneladas**.  
-- Caso o dado solicitado não exista ou não esteja disponível, retornar:
-  > 👉 “Não tenho acesso a essa informação no momento.”  
+- Se a informação não estiver disponível:
+  - Caso os filtros existam, mas não há dados para o período ou unidade solicitada:
+    👉 Explique que valor está zerado ou não há registro para os filtros aplicados.
+  - Caso ocorra um erro técnico ao tentar recuperar os dados:
+    👉 Explique que ocorreu um erro técnico ao consultar a informação, tente novamente mais tarde.
+  - Caso a informação não esteja na base de conhecimento do agente ou não seja permitida:
+    👉 “Não tenho acesso a essa informação no momento.” 
 
 ---
 
