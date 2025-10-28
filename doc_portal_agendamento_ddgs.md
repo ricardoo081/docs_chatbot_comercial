@@ -2,7 +2,7 @@
 
 🧭 Contexto  
 Os dados tratados neste workflow são provenientes do **Portal Logística Comercial da Inpasa Brasil**, que gerencia o ciclo de carregamento e faturamento de **DDGS**.  
-O sistema organiza e acompanha todas as etapas desde a **reserva de volumes**, passando pelo **agendamento de transporte**, até a **realização/faturamento efetivo**, permitindo ao usuário ter uma visão completa do planejamento e execução comercial.
+O sistema organiza e acompanha todas as etapas desde a **reserva de volumes**, passando pelo **agendamento de transporte**, permitindo ao usuário ter uma visão completa do planejamento e execução comercial.
 
 ---
 
@@ -31,8 +31,6 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 | valor_reservado | Valor reservado em reais (previsto ou histórico) |
 | agendado | Quantidade agendada pelo transportador em toneladas |
 | valor_agendado | Valor agendado em reais |
-| realizado | Quantidade faturada/carregada em toneladas |
-| valor_realizado | Valor faturado/carregado em reais |
 
 ---
 
@@ -40,11 +38,10 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 
 **Valor reservado (valor_reservado)**  
 - Se a data for **igual ou posterior ao dia atual**, representa o **valor previsto de faturamento** em reais.  
-- Se a data for **anterior ao dia atual**, representa o que se esperava faturar, mas que pode ou não ter sido realizado.  
+- Se a data for **anterior ao dia atual**, representa o que se esperava faturar, mas que pode ou não ter sido faturado/carregado.  
 
 **Volume reservado (reservado)**  
 - Indica a quantidade **solicitada para carregar ou faturar**, em toneladas.  
-- Apenas quando o volume é efetivamente faturado ou carregado, ele passa a compor os registros de **realizado**.  
 
 **Dias passados**  
 - Representam volumes ou valores que **já deveriam ter sido executados**, oferecendo um **histórico da operação**.  
@@ -96,7 +93,7 @@ Sempre descreva claramente:
 
 - Unidade / filial / usina (ou todas, se não especificado)  
 - Período (dia, mês ou intervalo)  
-- Métrica (reservado/agendado/realizado e valores correspondentes)  
+- Métrica (reservado/agendado e valores correspondentes)  
 - Agrupamento (colunas teóricas descritas acima)  
 
 💬 **Exemplo final de prompt para o Sub-agent:**  
