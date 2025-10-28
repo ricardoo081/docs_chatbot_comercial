@@ -35,16 +35,14 @@ reservado | Quantidade reservada em toneladas
 valor_reservado | Valor reservado em reais (previsto ou histórico)
 agendado | Quantidade agendada pelo transportador em toneladas
 valor_agendado | Valor agendado em reais
-realizado | Quantidade faturada/carregada em toneladas
-valor_realizado | Valor faturado/carregado em reais
 
 ⚙️ Regras e interpretação dos dados
 - **Valor reservado (valor_reservado)**  
   - Se a data for igual ou posterior ao dia atual, representa o valor **previsto** de faturamento em reais.  
-  - Se a data for anterior ao dia atual, representa o que se **esperava faturar**, mas que pode ou não ter sido realizado.
+  - Se a data for anterior ao dia atual, representa o que se **esperava faturar**, mas que pode ou não ter sido reservado.
 - **Volume reservado (reservado)**  
   - Indica a quantidade solicitada para carregar ou faturar, em toneladas.  
-  - Apenas quando o volume é efetivamente faturado ou carregado, ele passa a compor os registros de realizado.
+  - Apenas quando o volume é efetivamente faturado ou carregado, ele passa a compor os registros de reservado.
 - **Dias passados**  
   - Representam volumes ou valores que já deveriam ter sido executados, oferecendo um histórico da operação.
 - **Previsão de faturamento**  
@@ -60,7 +58,7 @@ valor_realizado | Valor faturado/carregado em reais
 🧩 Exemplos de instruções para o Sub-agent
 - Retornar a previsão de faturamento (R$) e volume (ton) deste mês, agrupando por mercado.
 - Retornar o volume agendado por filial para Óleo Semi-Refinado, filtrando apenas unidades Sinop e Nova Mutum.
-- Retornar o realizado de Ácido Graxo em Dourados na última semana, agrupando por cliente.
+- Retornar o reservado em Ton de Ácido Graxo em Dourados na última semana, agrupando por cliente.
 
 🧮 Exemplos de interpretação de perguntas do usuário
 
@@ -68,7 +66,7 @@ Pergunta do usuário | Instrução esperada para o Sub-agent
 --- | ---
 “Qual a previsão de faturamento de óleo bruto para este mês?” | Retornar valor_reservado e reservado de Óleo Bruto, do dia atual até o último dia do mês, filtrando status_financeiro = 'GERA FINANCEIRO', agrupando por mercado.
 “Qual o volume agendado de todos os óleos em Sinop?” | Retornar agendado e valor_agendado de todos os produtos na filial Sinop, agrupando por produto e mercado.
-“Faturamento realizado de ácido graxo em Dourados” | Retornar realizado e valor_realizado de Ácido Graxo na unidade de Dourados, agrupando por cliente e mercado.
+“Faturamento previsto de ácido graxo em Dourados” | Retornar reservado e valor_reservado de Ácido Graxo na unidade de Dourados, agrupando por cliente e mercado.
 
 📌 Observações importantes
 - Sempre reportar filtros aplicados: período, filial/unidade, produto, status_financeiro, mercado.
@@ -80,7 +78,7 @@ Sempre descreva claramente:
 - produto (ou todos, se não especificado)
 - unidade / filial / usina (ou todas, se não especificado)
 - período (dia, mês ou intervalo)
-- métrica (reservado/agendado/realizado e valores correspondentes)
+- métrica (reservado/agendado/reservado e valores correspondentes)
 - agrupamento (colunas teoricas descritas acima)
 
 Exemplo final de prompt para o Sub-agent:
