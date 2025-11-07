@@ -22,6 +22,7 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 | `data_fabricacao` | Data de fabricação do lote |
 | `data_validade` | Data de validade do lote |
 | `saldo_lote_litros` | Quantidade disponível do lote em litros |
+| `controle` | Onde está o estoque; na Inpasa ou Consignado; retorna 'INPASA' ou 'CONSIGNADO' |
 
 ---
 
@@ -31,6 +32,7 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 - Sempre informe ao Sub-agent **quais filtros foram aplicados** e **como agrupar os dados** de acordo com o pedido do usuário.  
 - Se o período ou filtros **não forem mencionados**, considere todas as filiais e produtos, agrupando por tipo de produto e filial.  
 - Não invente significados ou informações
+- Se nao mencionado se é estoque Inpasa ou Consignado, peça para o subagent apenas o estoque Inpasa
 
 ---
 
