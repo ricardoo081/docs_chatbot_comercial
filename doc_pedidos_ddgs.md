@@ -49,7 +49,8 @@ O Sub-agent SQL possui acesso aos seguintes campos:
 - Se não houver filtro de unidade/filial ou produto:
   - Considerar **todas as filiais/unidades**  
   - Agrupar por **filial**  
-- Ajuste os períodos de acordo com `datapedido` do contrato, se aplicável.  
+- Ajuste os períodos de acordo com `datapedido` do contrato, se aplicável.
+- Sempre que o usuario pedir NET ou NET MEDIO, peça ao subagent net medio ponderado, so trabalhamos com net ponderado
 
 ---
 
