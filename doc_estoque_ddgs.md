@@ -3,7 +3,7 @@
 ---
 
 ### 🧭 **Finalidade**
-Use este workflow para responder perguntas relacionadas ao **estoque de DDGS (Farelo de Milho)** nas unidades da **Inpasa Brasil**.  
+Use este workflow para responder perguntas relacionadas ao **estoque de DDGS (Farelo de Milho ou Farelo de Sorgo)** nas unidades da **Inpasa Brasil**.  
 Ele cobre consultas sobre **quantidades disponíveis**, **unidades (filiais / GEF)**, **armazéns** e permite cálculos de **totais ou médias em toneladas**.  
 
 ---
@@ -34,7 +34,7 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
   - Considerar **todas as filiais**.  
   - Aplicar **`DESCRICAO_ARMAZEM = 'ARMAZEM INPASA'`** por padrão, sempre mencione isso, quando o usuario nao especificar, voce especificar para o subagent.  
   - Agrupar por **filial (GEF)**, sempre mencione isso tambem, quando o usuario nao especificar, a menos que ele peça o TOTAL mesmo.  
-
+  - Tem dois tipos de DDGS (Farelo de Milho e Farelo de Sorgo), quando o usuário não especificar, peça para o subagent trazer o estoque separado do dggs de milho e sorgo, pois são visões distintas
 ---
 
 ### 🧩 **Exemplos de instruções para o Sub-agent**
@@ -52,13 +52,14 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
 | “Qual o estoque de DDGS em Sidrolândia e Nova Mutum?” | Retornar a quantidade total de DDGS em Sidrolândia e Nova Mutum, no armazém Inpasa, agrupando por filial. |
 | “Quero ver o estoque bloqueado de DDGS” | Retornar o estoque de DDGS com armazém BLOQUEADO, agrupando por filial. |
 | “Mostrar DDGS refaturamento por unidade” | Retornar a quantidade de DDGS no armazém REFATURAMENTO DDGS, agrupando por filial. |
-| “Estoque geral de DDGS” | Retornar o estoque total de DDGS em toneladas, considerando todas as filiais, agrupando por GEF, com filtro no ARMAZEM INPASA. |
+| “Estoque geral de DDGS de Milho e Sorgo” | Retornar o estoque total de DDGS de Milho e Sorgo em toneladas, considerando todas as filiais, agrupando por GEF, com filtro no ARMAZEM INPASA. |
 | “Qual estoque na Cargill” | Retornar o estoque de DDGS com armazém CARGILL, agrupando por filial. |
 
 ---
 
 ### 📌 **Observações importantes**
 - Sempre **expressar as quantidades em toneladas**.  
+- Sempre solicite ao sub agente os estoque agrupado por por ddgs de milho e sorgo, mesmo se o usuário não especificar
 - **Reportar claramente** no comentário final da query:  
   - Armazém utilizado  
   - Unidades filtradas  
@@ -74,7 +75,7 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
 ---
 
 ### 🧠 **Contexto adicional para Rafinha**
-Quando o **Agent Principal** identificar que a solicitação trata de **estoque de DDGS / Farelo de Milho**, ele deve seguir este documento antes de acionar o Sub-agent SQL.
+Quando o **Agent Principal** identificar que a solicitação trata de **estoque de DDGS / Farelo de Milho / Farelo de Sorgo**, ele deve seguir este documento antes de acionar o Sub-agent SQL.
 
 O prompt para o Sub-agent deve **sempre** descrever claramente:
 - **As unidades (GEFs)** envolvidas ou todas, se não especificadas.  
@@ -86,4 +87,4 @@ O prompt para o Sub-agent deve **sempre** descrever claramente:
 ---
 
 ### 💬 **Exemplo final de prompt para o Sub-agent**
-> “Retornar a quantidade total de DDGS nas unidades de Sidrolândia e Dourados, considerando apenas o armazém Inpasa, agrupando por filial, em toneladas.”
+> “Retornar a quantidade total de DDGS de Milho e Sorgo nas unidades de Sidrolândia e Dourados, considerando apenas o armazém Inpasa, agrupando por filial, em toneladas.”
