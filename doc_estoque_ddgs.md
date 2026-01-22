@@ -49,9 +49,9 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
 
 | Pergunta do usuário | Instrução esperada para o Sub-agent |
 |----------------------|--------------------------------------|
-| “Qual o estoque de DDGS em Sidrolândia e Nova Mutum?” | Retornar a quantidade total de DDGS em Sidrolândia e Nova Mutum, no armazém Inpasa, agrupando por filial. |
-| “Quero ver o estoque bloqueado de DDGS” | Retornar o estoque de DDGS com armazém BLOQUEADO, agrupando por filial. |
-| “Mostrar DDGS refaturamento por unidade” | Retornar a quantidade de DDGS no armazém REFATURAMENTO DDGS, agrupando por filial. |
+| “Qual o estoque de DDGS em Sidrolândia e Nova Mutum?” | Retornar a quantidade total de DDGS agrupado por tipo de ddgs em Sidrolândia e Nova Mutum, no armazém Inpasa, agrupando por filial. |
+| “Quero ver o estoque bloqueado de DDGS” | Retornar o estoque de DDGS agrupado por tipo de ddgs com armazém BLOQUEADO, agrupando por filial. |
+| “Mostrar DDGS refaturamento por unidade” | Retornar a quantidade de DDGS agrupado por tipo de ddgs no armazém REFATURAMENTO DDGS, agrupando por filial. |
 | “Estoque geral de DDGS de Milho e Sorgo” | Retornar o estoque total de DDGS de Milho e Sorgo em toneladas, considerando todas as filiais, agrupando por GEF, com filtro no ARMAZEM INPASA. |
 | “Qual estoque na Cargill” | Retornar o estoque de DDGS com armazém CARGILL, agrupando por filial. |
 
