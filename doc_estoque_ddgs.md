@@ -82,7 +82,7 @@ O prompt para o Sub-agent deve **sempre** descrever claramente:
 - **O armazém** (padrão: ARMAZEM INPASA).  
 - **O tipo de dado** (quantidade total, bloqueado, refaturamento, etc.).  
 - **A métrica** (quantidade em toneladas).  
-- **O agrupamento** (por GEF, armazém, ou ambos).
+- **O agrupamento** (por tipo de DDGS, GEF, armazém, ou ambos).
 
 ---
 
