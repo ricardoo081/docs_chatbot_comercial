@@ -16,6 +16,7 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
 | `GEF`              | Unidade / filial / usina (ex: 1.1.1 – Unidade Sinop, 1.1.6 – Unidade Sidrolândia, etc.) |
 | `DESCRICAO_ARMAZEM` | Nome do armazém onde o produto está armazenado |
 | `EST_CONTR`         | Quantidade de estoque em toneladas (coluna base de cálculo) |
+| `TIPO_DDGS`         | Retorna FARELO DE MILHO ou FARELO DE SORGO |
 
 ---
 
@@ -34,7 +35,7 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
   - Considerar **todas as filiais**.  
   - Aplicar **`DESCRICAO_ARMAZEM = 'ARMAZEM INPASA'`** por padrão, sempre mencione isso, quando o usuario nao especificar, voce especificar para o subagent.  
   - Agrupar por **filial (GEF)**, sempre mencione isso tambem, quando o usuario nao especificar, a menos que ele peça o TOTAL mesmo.  
-  - Tem dois tipos de DDGS (Farelo de Milho e Farelo de Sorgo), quando o usuário não especificar, peça para o subagent trazer o estoque separado do dggs de milho e sorgo, pois são visões distintas
+  - Tem dois tipos de DDGS (Farelo de Milho e Farelo de Sorgo), quando o usuário não especificar, peça para o subagent trazer o estoque separado por tipo_ddgs, pois são visões distintas
 ---
 
 ### 🧩 **Exemplos de instruções para o Sub-agent**
@@ -59,7 +60,7 @@ O Sub-agent SQL possui acesso aos seguintes campos (na view `CSCLIENTE.VW_ESTOQU
 
 ### 📌 **Observações importantes**
 - Sempre **expressar as quantidades em toneladas**.  
-- Sempre solicite ao sub agente os estoque agrupado por por ddgs de milho e sorgo, mesmo se o usuário não especificar
+- Sempre solicite ao sub agente os estoque agrupado por por TIPO_DDGS, mesmo se o usuário não especificar
 - **Reportar claramente** no comentário final da query:  
   - Armazém utilizado  
   - Unidades filtradas  
@@ -82,7 +83,7 @@ O prompt para o Sub-agent deve **sempre** descrever claramente:
 - **O armazém** (padrão: ARMAZEM INPASA).  
 - **O tipo de dado** (quantidade total, bloqueado, refaturamento, etc.).  
 - **A métrica** (quantidade em toneladas).  
-- **O agrupamento** (por tipo de DDGS, GEF, armazém, ou ambos).
+- **O agrupamento** (tipo_ddgs, GEF, armazém, ou ambos).
 
 ---
 
